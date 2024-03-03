@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Update book
+{% endblock %}
+
+{% block body %}
+	<div>
+		{{ form_start(form) }}
+		<div>
+			{{ form_errors(form) }}
+		</div>
+		<div>
+			{{ form_label(form.BookName,'Please enter book name') }}
+		</div>
+		<div>
+			{{ form_widget(form.BookName) }}
+		</div>
+		<div>
+			{{ form_label(form.BookAuthor,'Please enter book author') }}
+		</div>
+		<div>
+			{{ form_widget(form.BookAuthor) }}
+		</div>
+
+		<div>
+			{{ form_label(form.BookGenre,'Please enter book genre') }}
+		</div>
+		<div>
+			{{ form_widget(form.BookGenre) }}
+		</div>
+		<div>
+			<button type="submit">Add</button>
+		</div>
+		{{ form_end(form) }}
+	</div>
+
+	<p>
+		Home Page
+		<a href={{path('app_book')}}>
+			<button>
+				Back
+			</button>
+		</a>
+	</p>
+{% endblock %}

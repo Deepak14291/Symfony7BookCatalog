@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	My Personal Books List
+{% endblock %}
+
+{% block stylesheets %}
+	<style>
+		table,
+		th,
+		td {
+			border: 1px solid;
+			border-collapse: collapse;
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+{% block body %}
+
+	<p>Add new book
+		<a href="{{path('add_newbook')}}">
+			<button>Add</button>
+		</a>
+	</p>
+	<table>
+		<tr>
+			<th>Book Name</th>
+			<th>Book Author</th>
+			<th>Book Genre</th>
+		</tr>
+		{% for book in books %}
+			<tr>
+				<td>{{ book.BookName}}</td>
+				<td>{{ book.BookAuthor}}</td>
+				<td>{{ book.BookGenre}}</td>
+				<td>
+					<a href={{path('update_book' ,{id:book.id} )}}>
+						<button>
+							Update
+						</button>
+					</a>
+				</td>
+				<td>
+					<a href={{path('delete_book',{id:book.id} )}}>
+						<button>
+							Delete
+						</button>
+					</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
